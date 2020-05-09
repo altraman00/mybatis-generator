@@ -107,7 +107,7 @@ public class DaoExtPlugin extends PluginAdapter {
 
 
     /**
-     * 4、重写contextGenerateAdditionalXmlFiles方法，新增mapper.xml扩展文件
+     * 4、重写contextGenerateAdditionalXmlFiles方法，新增xxxMapper.xml扩展文件
      * GeneratedXmlFile构造xml文件对象的isMergeable参数是表示执行generator逆向工程前后的文件是否合并，如果为false则我们写的扩展sql不会被覆盖
      *
      * @return
