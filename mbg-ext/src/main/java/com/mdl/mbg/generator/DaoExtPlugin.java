@@ -14,10 +14,10 @@ import java.util.List;
 /**
  * @Project : mall
  * @Package Name : com.mdl.mbg.generator
- * @Description :   2.自定义插件DaoExtPlugin继承PluginAdapter，重写validate方法进行数据校验
- *                  3.重写contextGenerateAdditionalJavaFiles方法，新增dao层java扩展文件
- *                  4、重写contextGenerateAdditionalXmlFiles方法，新增mapper.xml扩展文件
- *                  4.1、GeneratedXmlFile构造xml文件对象的isMergeable参数是表示执行generator逆向工程前后的文件是否合并，如果为false则我们写的扩展sql不会被覆盖
+ * @Description : 2、自定义插件```DaoExtPlugin```继承```PluginAdapter```，重写```validate```方法进行数据校验；
+ *                  2.1、在自定义插件```DaoExtPlugin```重写```contextGenerateAdditionalJavaFiles```方法，新增dao层生成```xxxMapperExt.java```扩展文件；
+ *                  2.2、在自定义插件```DaoExtPlugin```重写```contextGenerateAdditionalXmlFiles```方法，新增```xxxMapperExt.xml```扩展文件，```GeneratedXmlFile```构造xml文件对象的isMergeable参数是表示执行generator逆向工程前后的文件是否合并，如果为false则我们写的扩展sql不会被覆盖；
+ *                  2.3、在自定义插件```DaoExtPlugin```重写```sqlMapDocumentGenerated```在xxxMapper.xml中生成findBy的sql和重写```clientGenerated```在在xxxMapper.java中生成自定义查询的方法List<xxxEntity> findBy(xxxEntity entity)；
  * @Author : xiekun
  * @Create Date : 2020年05月08日 14:52
  * @ModificationHistory Who   When     What
@@ -148,7 +148,7 @@ public class DaoExtPlugin extends PluginAdapter {
 
 
     /**
-     * 创建自定义的根据字段条件查询的sql
+     * 创建自定义的根据字段条件查询的sql List<xxxEntity> findBy(xxxEntity entity)
      * @param document
      * @param introspectedTable
      * @return
@@ -194,7 +194,7 @@ public class DaoExtPlugin extends PluginAdapter {
     }
 
     /**
-     * 创建mapper.java中的方法
+     * 创建mapper.java中的方法 List<xxxEntity> findBy(xxxEntity entity)
      * @param interfaze
      * @param topLevelClass
      * @param introspectedTable

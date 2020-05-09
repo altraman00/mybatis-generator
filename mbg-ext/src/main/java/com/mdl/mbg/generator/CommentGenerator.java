@@ -81,7 +81,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
 
 
     /**
-     * 将namespace修改掉
+     * 5、重写addRootComment方法，修改原始生成的xxxMapper.xml中的namespace为"com.mdl.mbg.dao.BiResumeMapperExt"形式
      * @param rootElement
      */
     @Override

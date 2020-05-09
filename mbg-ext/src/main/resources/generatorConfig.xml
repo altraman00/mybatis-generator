@@ -29,6 +29,7 @@
             <property name="suppressAllComments" value="true"/>
             <property name="suppressDate" value="true"/>
             <property name="addRemarkComments" value="true"/>
+            <!-- 此处设置属性为true，在CommentGenerator.addRootComment中会用到 -->
             <property name="replaceNamespace" value="true"/>
         </commentGenerator>
 
