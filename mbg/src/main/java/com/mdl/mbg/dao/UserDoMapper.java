@@ -1,6 +1,7 @@
-package com.demo.dao;
+package com.mdl.mbg.dao;
 
-import com.demo.model.UserDo;
+
+import com.mdl.mbg.model.UserDo;
 
 public interface UserDoMapper {
     int deleteByPrimaryKey(String id);

@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.BiResumeMapper">
+  <resultMap id="BaseResultMap" type="com.demo.model.BiResume">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="seeker_id" jdbcType="VARCHAR" property="seekerId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="plat_seeker_id" jdbcType="VARCHAR" property="platSeekerId" />
+    <result column="plat_resume_id" jdbcType="VARCHAR" property="platResumeId" />
+    <result column="job_id" jdbcType="VARCHAR" property="jobId" />
+    <result column="post_id" jdbcType="VARCHAR" property="postId" />
+    <result column="plat_id" jdbcType="VARCHAR" property="platId" />
+    <result column="job_seeker_name" jdbcType="VARCHAR" property="jobSeekerName" />
+    <result column="in_way" jdbcType="VARCHAR" property="inWay" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="old_phone" jdbcType="VARCHAR" property="oldPhone" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="work_length_max" jdbcType="INTEGER" property="workLengthMax" />
+    <result column="work_length_min" jdbcType="INTEGER" property="workLengthMin" />
+    <result column="work_length" jdbcType="VARCHAR" property="workLength" />
+    <result column="is_marry" jdbcType="VARCHAR" property="isMarry" />
+    <result column="job_title" jdbcType="VARCHAR" property="jobTitle" />
+    <result column="reside_address" jdbcType="VARCHAR" property="resideAddress" />
+    <result column="current_state" jdbcType="VARCHAR" property="currentState" />
+    <result column="expect_salary_max" jdbcType="INTEGER" property="expectSalaryMax" />
+    <result column="expect_salary_min" jdbcType="INTEGER" property="expectSalaryMin" />
+    <result column="expect_place" jdbcType="VARCHAR" property="expectPlace" />
+    <result column="interested_dept" jdbcType="VARCHAR" property="interestedDept" />
+    <result column="expect_job" jdbcType="VARCHAR" property="expectJob" />
+    <result column="is_occupy" jdbcType="VARCHAR" property="isOccupy" />
+    <result column="expect_industry" jdbcType="VARCHAR" property="expectIndustry" />
+    <result column="photo_path" jdbcType="VARCHAR" property="photoPath" />
+    <result column="person_state" jdbcType="VARCHAR" property="personState" />
+    <result column="abandon_reason_id" jdbcType="VARCHAR" property="abandonReasonId" />
+    <result column="expect_job_property" jdbcType="VARCHAR" property="expectJobProperty" />
+    <result column="political_status" jdbcType="VARCHAR" property="politicalStatus" />
+    <result column="education_str" jdbcType="VARCHAR" property="educationStr" />
+    <result column="work_ex_str" jdbcType="VARCHAR" property="workExStr" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="is_distribute" jdbcType="VARCHAR" property="isDistribute" />
+    <result column="ask_time" jdbcType="TIMESTAMP" property="askTime" />
+    <result column="is_brand_company" jdbcType="VARCHAR" property="isBrandCompany" />
+    <result column="is_brand_university" jdbcType="VARCHAR" property="isBrandUniversity" />
+    <result column="last_updated_date" jdbcType="TIMESTAMP" property="lastUpdatedDate" />
+    <result column="university" jdbcType="VARCHAR" property="university" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="resume_upload_name" jdbcType="VARCHAR" property="resumeUploadName" />
+    <result column="resume_name" jdbcType="VARCHAR" property="resumeName" />
+    <result column="resume_path" jdbcType="VARCHAR" property="resumePath" />
+    <result column="pdf_path" jdbcType="VARCHAR" property="pdfPath" />
+    <result column="works_path" jdbcType="VARCHAR" property="worksPath" />
+    <result column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="buss_dept_id" jdbcType="VARCHAR" property="bussDeptId" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="out_date" jdbcType="TIMESTAMP" property="outDate" />
+    <result column="last_oper_user_id" jdbcType="INTEGER" property="lastOperUserId" />
+    <result column="out_state" jdbcType="INTEGER" property="outState" />
+    <result column="es_id" jdbcType="VARCHAR" property="esId" />
+    <result column="signature_code" jdbcType="VARCHAR" property="signatureCode" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="bitrh_place" jdbcType="VARCHAR" property="bitrhPlace" />
+    <result column="certificate_type" jdbcType="VARCHAR" property="certificateType" />
+    <result column="certificate_num" jdbcType="VARCHAR" property="certificateNum" />
+    <result column="wechat_num" jdbcType="VARCHAR" property="wechatNum" />
+    <result column="health" jdbcType="VARCHAR" property="health" />
+    <result column="hobbies" jdbcType="VARCHAR" property="hobbies" />
+    <result column="housing_status" jdbcType="VARCHAR" property="housingStatus" />
+    <result column="house_address" jdbcType="VARCHAR" property="houseAddress" />
+    <result column="driving_minute" jdbcType="INTEGER" property="drivingMinute" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="deleted" jdbcType="INTEGER" property="deleted" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="out_reason" jdbcType="VARCHAR" property="outReason" />
+    <result column="out_remark" jdbcType="VARCHAR" property="outRemark" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.demo.model.BiResume">
+    <result column="resume_detail" jdbcType="LONGVARCHAR" property="resumeDetail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, seeker_id, open_id, plat_seeker_id, plat_resume_id, job_id, post_id, plat_id, 
+    job_seeker_name, in_way, phone, old_phone, age, email, sex, birthday, degree, work_length_max, 
+    work_length_min, work_length, is_marry, job_title, reside_address, current_state, 
+    expect_salary_max, expect_salary_min, expect_place, interested_dept, expect_job, 
+    is_occupy, expect_industry, photo_path, person_state, abandon_reason_id, expect_job_property, 
+    political_status, education_str, work_ex_str, comment, is_distribute, ask_time, is_brand_company, 
+    is_brand_university, last_updated_date, university, major, resume_upload_name, resume_name, 
+    resume_path, pdf_path, works_path, dept_id, buss_dept_id, state, out_date, last_oper_user_id, 
+    out_state, es_id, signature_code, nation, bitrh_place, certificate_type, certificate_num, 
+    wechat_num, health, hobbies, housing_status, house_address, driving_minute, version, 
+    deleted, created_date, out_reason, out_remark
+  </sql>
+  <sql id="Blob_Column_List">
+    resume_detail
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bi_resume
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bi_resume
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.BiResume">
+    insert into bi_resume (id, seeker_id, open_id, 
+      plat_seeker_id, plat_resume_id, job_id, 
+      post_id, plat_id, job_seeker_name, 
+      in_way, phone, old_phone, 
+      age, email, sex, birthday, 
+      degree, work_length_max, work_length_min, 
+      work_length, is_marry, job_title, 
+      reside_address, current_state, expect_salary_max, 
+      expect_salary_min, expect_place, interested_dept, 
+      expect_job, is_occupy, expect_industry, 
+      photo_path, person_state, abandon_reason_id, 
+      expect_job_property, political_status, education_str, 
+      work_ex_str, comment, is_distribute, 
+      ask_time, is_brand_company, is_brand_university, 
+      last_updated_date, university, major, 
+      resume_upload_name, resume_name, resume_path, 
+      pdf_path, works_path, dept_id, 
+      buss_dept_id, state, out_date, 
+      last_oper_user_id, out_state, es_id, 
+      signature_code, nation, bitrh_place, 
+      certificate_type, certificate_num, wechat_num, 
+      health, hobbies, housing_status, 
+      house_address, driving_minute, version, 
+      deleted, created_date, out_reason, 
+      out_remark, resume_detail)
+    values (#{id,jdbcType=VARCHAR}, #{seekerId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
+      #{platSeekerId,jdbcType=VARCHAR}, #{platResumeId,jdbcType=VARCHAR}, #{jobId,jdbcType=VARCHAR}, 
+      #{postId,jdbcType=VARCHAR}, #{platId,jdbcType=VARCHAR}, #{jobSeekerName,jdbcType=VARCHAR}, 
+      #{inWay,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{oldPhone,jdbcType=VARCHAR}, 
+      #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{degree,jdbcType=VARCHAR}, #{workLengthMax,jdbcType=INTEGER}, #{workLengthMin,jdbcType=INTEGER}, 
+      #{workLength,jdbcType=VARCHAR}, #{isMarry,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR}, 
+      #{resideAddress,jdbcType=VARCHAR}, #{currentState,jdbcType=VARCHAR}, #{expectSalaryMax,jdbcType=INTEGER}, 
+      #{expectSalaryMin,jdbcType=INTEGER}, #{expectPlace,jdbcType=VARCHAR}, #{interestedDept,jdbcType=VARCHAR}, 
+      #{expectJob,jdbcType=VARCHAR}, #{isOccupy,jdbcType=VARCHAR}, #{expectIndustry,jdbcType=VARCHAR}, 
+      #{photoPath,jdbcType=VARCHAR}, #{personState,jdbcType=VARCHAR}, #{abandonReasonId,jdbcType=VARCHAR}, 
+      #{expectJobProperty,jdbcType=VARCHAR}, #{politicalStatus,jdbcType=VARCHAR}, #{educationStr,jdbcType=VARCHAR}, 
+      #{workExStr,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{isDistribute,jdbcType=VARCHAR}, 
+      #{askTime,jdbcType=TIMESTAMP}, #{isBrandCompany,jdbcType=VARCHAR}, #{isBrandUniversity,jdbcType=VARCHAR}, 
+      #{lastUpdatedDate,jdbcType=TIMESTAMP}, #{university,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, 
+      #{resumeUploadName,jdbcType=VARCHAR}, #{resumeName,jdbcType=VARCHAR}, #{resumePath,jdbcType=VARCHAR}, 
+      #{pdfPath,jdbcType=VARCHAR}, #{worksPath,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}, 
+      #{bussDeptId,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{outDate,jdbcType=TIMESTAMP}, 
+      #{lastOperUserId,jdbcType=INTEGER}, #{outState,jdbcType=INTEGER}, #{esId,jdbcType=VARCHAR}, 
+      #{signatureCode,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{bitrhPlace,jdbcType=VARCHAR}, 
+      #{certificateType,jdbcType=VARCHAR}, #{certificateNum,jdbcType=VARCHAR}, #{wechatNum,jdbcType=VARCHAR}, 
+      #{health,jdbcType=VARCHAR}, #{hobbies,jdbcType=VARCHAR}, #{housingStatus,jdbcType=VARCHAR}, 
+      #{houseAddress,jdbcType=VARCHAR}, #{drivingMinute,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, 
+      #{deleted,jdbcType=INTEGER}, #{createdDate,jdbcType=TIMESTAMP}, #{outReason,jdbcType=VARCHAR}, 
+      #{outRemark,jdbcType=VARCHAR}, #{resumeDetail,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.BiResume">
+    insert into bi_resume
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="seekerId != null">
+        seeker_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="platSeekerId != null">
+        plat_seeker_id,
+      </if>
+      <if test="platResumeId != null">
+        plat_resume_id,
+      </if>
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="platId != null">
+        plat_id,
+      </if>
+      <if test="jobSeekerName != null">
+        job_seeker_name,
+      </if>
+      <if test="inWay != null">
+        in_way,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="oldPhone != null">
+        old_phone,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="degree != null">
+        degree,
+      </if>
+      <if test="workLengthMax != null">
+        work_length_max,
+      </if>
+      <if test="workLengthMin != null">
+        work_length_min,
+      </if>
+      <if test="workLength != null">
+        work_length,
+      </if>
+      <if test="isMarry != null">
+        is_marry,
+      </if>
+      <if test="jobTitle != null">
+        job_title,
+      </if>
+      <if test="resideAddress != null">
+        reside_address,
+      </if>
+      <if test="currentState != null">
+        current_state,
+      </if>
+      <if test="expectSalaryMax != null">
+        expect_salary_max,
+      </if>
+      <if test="expectSalaryMin != null">
+        expect_salary_min,
+      </if>
+      <if test="expectPlace != null">
+        expect_place,
+      </if>
+      <if test="interestedDept != null">
+        interested_dept,
+      </if>
+      <if test="expectJob != null">
+        expect_job,
+      </if>
+      <if test="isOccupy != null">
+        is_occupy,
+      </if>
+      <if test="expectIndustry != null">
+        expect_industry,
+      </if>
+      <if test="photoPath != null">
+        photo_path,
+      </if>
+      <if test="personState != null">
+        person_state,
+      </if>
+      <if test="abandonReasonId != null">
+        abandon_reason_id,
+      </if>
+      <if test="expectJobProperty != null">
+        expect_job_property,
+      </if>
+      <if test="politicalStatus != null">
+        political_status,
+      </if>
+      <if test="educationStr != null">
+        education_str,
+      </if>
+      <if test="workExStr != null">
+        work_ex_str,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="isDistribute != null">
+        is_distribute,
+      </if>
+      <if test="askTime != null">
+        ask_time,
+      </if>
+      <if test="isBrandCompany != null">
+        is_brand_company,
+      </if>
+      <if test="isBrandUniversity != null">
+        is_brand_university,
+      </if>
+      <if test="lastUpdatedDate != null">
+        last_updated_date,
+      </if>
+      <if test="university != null">
+        university,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="resumeUploadName != null">
+        resume_upload_name,
+      </if>
+      <if test="resumeName != null">
+        resume_name,
+      </if>
+      <if test="resumePath != null">
+        resume_path,
+      </if>
+      <if test="pdfPath != null">
+        pdf_path,
+      </if>
+      <if test="worksPath != null">
+        works_path,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="bussDeptId != null">
+        buss_dept_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="outDate != null">
+        out_date,
+      </if>
+      <if test="lastOperUserId != null">
+        last_oper_user_id,
+      </if>
+      <if test="outState != null">
+        out_state,
+      </if>
+      <if test="esId != null">
+        es_id,
+      </if>
+      <if test="signatureCode != null">
+        signature_code,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="bitrhPlace != null">
+        bitrh_place,
+      </if>
+      <if test="certificateType != null">
+        certificate_type,
+      </if>
+      <if test="certificateNum != null">
+        certificate_num,
+      </if>
+      <if test="wechatNum != null">
+        wechat_num,
+      </if>
+      <if test="health != null">
+        health,
+      </if>
+      <if test="hobbies != null">
+        hobbies,
+      </if>
+      <if test="housingStatus != null">
+        housing_status,
+      </if>
+      <if test="houseAddress != null">
+        house_address,
+      </if>
+      <if test="drivingMinute != null">
+        driving_minute,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="outReason != null">
+        out_reason,
+      </if>
+      <if test="outRemark != null">
+        out_remark,
+      </if>
+      <if test="resumeDetail != null">
+        resume_detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="seekerId != null">
+        #{seekerId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="platSeekerId != null">
+        #{platSeekerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platResumeId != null">
+        #{platResumeId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobId != null">
+        #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null">
+        #{postId,jdbcType=VARCHAR},
+      </if>
+      <if test="platId != null">
+        #{platId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobSeekerName != null">
+        #{jobSeekerName,jdbcType=VARCHAR},
+      </if>
+      <if test="inWay != null">
+        #{inWay,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPhone != null">
+        #{oldPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="workLengthMax != null">
+        #{workLengthMax,jdbcType=INTEGER},
+      </if>
+      <if test="workLengthMin != null">
+        #{workLengthMin,jdbcType=INTEGER},
+      </if>
+      <if test="workLength != null">
+        #{workLength,jdbcType=VARCHAR},
+      </if>
+      <if test="isMarry != null">
+        #{isMarry,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTitle != null">
+        #{jobTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="resideAddress != null">
+        #{resideAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="currentState != null">
+        #{currentState,jdbcType=VARCHAR},
+      </if>
+      <if test="expectSalaryMax != null">
+        #{expectSalaryMax,jdbcType=INTEGER},
+      </if>
+      <if test="expectSalaryMin != null">
+        #{expectSalaryMin,jdbcType=INTEGER},
+      </if>
+      <if test="expectPlace != null">
+        #{expectPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="interestedDept != null">
+        #{interestedDept,jdbcType=VARCHAR},
+      </if>
+      <if test="expectJob != null">
+        #{expectJob,jdbcType=VARCHAR},
+      </if>
+      <if test="isOccupy != null">
+        #{isOccupy,jdbcType=VARCHAR},
+      </if>
+      <if test="expectIndustry != null">
+        #{expectIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="photoPath != null">
+        #{photoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="personState != null">
+        #{personState,jdbcType=VARCHAR},
+      </if>
+      <if test="abandonReasonId != null">
+        #{abandonReasonId,jdbcType=VARCHAR},
+      </if>
+      <if test="expectJobProperty != null">
+        #{expectJobProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalStatus != null">
+        #{politicalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="educationStr != null">
+        #{educationStr,jdbcType=VARCHAR},
+      </if>
+      <if test="workExStr != null">
+        #{workExStr,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="isDistribute != null">
+        #{isDistribute,jdbcType=VARCHAR},
+      </if>
+      <if test="askTime != null">
+        #{askTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isBrandCompany != null">
+        #{isBrandCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="isBrandUniversity != null">
+        #{isBrandUniversity,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdatedDate != null">
+        #{lastUpdatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="university != null">
+        #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeUploadName != null">
+        #{resumeUploadName,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeName != null">
+        #{resumeName,jdbcType=VARCHAR},
+      </if>
+      <if test="resumePath != null">
+        #{resumePath,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfPath != null">
+        #{pdfPath,jdbcType=VARCHAR},
+      </if>
+      <if test="worksPath != null">
+        #{worksPath,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="bussDeptId != null">
+        #{bussDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="outDate != null">
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOperUserId != null">
+        #{lastOperUserId,jdbcType=INTEGER},
+      </if>
+      <if test="outState != null">
+        #{outState,jdbcType=INTEGER},
+      </if>
+      <if test="esId != null">
+        #{esId,jdbcType=VARCHAR},
+      </if>
+      <if test="signatureCode != null">
+        #{signatureCode,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="bitrhPlace != null">
+        #{bitrhPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null">
+        #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateNum != null">
+        #{certificateNum,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatNum != null">
+        #{wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="health != null">
+        #{health,jdbcType=VARCHAR},
+      </if>
+      <if test="hobbies != null">
+        #{hobbies,jdbcType=VARCHAR},
+      </if>
+      <if test="housingStatus != null">
+        #{housingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAddress != null">
+        #{houseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingMinute != null">
+        #{drivingMinute,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outReason != null">
+        #{outReason,jdbcType=VARCHAR},
+      </if>
+      <if test="outRemark != null">
+        #{outRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeDetail != null">
+        #{resumeDetail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.BiResume">
+    update bi_resume
+    <set>
+      <if test="seekerId != null">
+        seeker_id = #{seekerId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="platSeekerId != null">
+        plat_seeker_id = #{platSeekerId,jdbcType=VARCHAR},
+      </if>
+      <if test="platResumeId != null">
+        plat_resume_id = #{platResumeId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobId != null">
+        job_id = #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=VARCHAR},
+      </if>
+      <if test="platId != null">
+        plat_id = #{platId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobSeekerName != null">
+        job_seeker_name = #{jobSeekerName,jdbcType=VARCHAR},
+      </if>
+      <if test="inWay != null">
+        in_way = #{inWay,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="oldPhone != null">
+        old_phone = #{oldPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="workLengthMax != null">
+        work_length_max = #{workLengthMax,jdbcType=INTEGER},
+      </if>
+      <if test="workLengthMin != null">
+        work_length_min = #{workLengthMin,jdbcType=INTEGER},
+      </if>
+      <if test="workLength != null">
+        work_length = #{workLength,jdbcType=VARCHAR},
+      </if>
+      <if test="isMarry != null">
+        is_marry = #{isMarry,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTitle != null">
+        job_title = #{jobTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="resideAddress != null">
+        reside_address = #{resideAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="currentState != null">
+        current_state = #{currentState,jdbcType=VARCHAR},
+      </if>
+      <if test="expectSalaryMax != null">
+        expect_salary_max = #{expectSalaryMax,jdbcType=INTEGER},
+      </if>
+      <if test="expectSalaryMin != null">
+        expect_salary_min = #{expectSalaryMin,jdbcType=INTEGER},
+      </if>
+      <if test="expectPlace != null">
+        expect_place = #{expectPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="interestedDept != null">
+        interested_dept = #{interestedDept,jdbcType=VARCHAR},
+      </if>
+      <if test="expectJob != null">
+        expect_job = #{expectJob,jdbcType=VARCHAR},
+      </if>
+      <if test="isOccupy != null">
+        is_occupy = #{isOccupy,jdbcType=VARCHAR},
+      </if>
+      <if test="expectIndustry != null">
+        expect_industry = #{expectIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="photoPath != null">
+        photo_path = #{photoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="personState != null">
+        person_state = #{personState,jdbcType=VARCHAR},
+      </if>
+      <if test="abandonReasonId != null">
+        abandon_reason_id = #{abandonReasonId,jdbcType=VARCHAR},
+      </if>
+      <if test="expectJobProperty != null">
+        expect_job_property = #{expectJobProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalStatus != null">
+        political_status = #{politicalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="educationStr != null">
+        education_str = #{educationStr,jdbcType=VARCHAR},
+      </if>
+      <if test="workExStr != null">
+        work_ex_str = #{workExStr,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="isDistribute != null">
+        is_distribute = #{isDistribute,jdbcType=VARCHAR},
+      </if>
+      <if test="askTime != null">
+        ask_time = #{askTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isBrandCompany != null">
+        is_brand_company = #{isBrandCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="isBrandUniversity != null">
+        is_brand_university = #{isBrandUniversity,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdatedDate != null">
+        last_updated_date = #{lastUpdatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="university != null">
+        university = #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeUploadName != null">
+        resume_upload_name = #{resumeUploadName,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeName != null">
+        resume_name = #{resumeName,jdbcType=VARCHAR},
+      </if>
+      <if test="resumePath != null">
+        resume_path = #{resumePath,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfPath != null">
+        pdf_path = #{pdfPath,jdbcType=VARCHAR},
+      </if>
+      <if test="worksPath != null">
+        works_path = #{worksPath,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="bussDeptId != null">
+        buss_dept_id = #{bussDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="outDate != null">
+        out_date = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOperUserId != null">
+        last_oper_user_id = #{lastOperUserId,jdbcType=INTEGER},
+      </if>
+      <if test="outState != null">
+        out_state = #{outState,jdbcType=INTEGER},
+      </if>
+      <if test="esId != null">
+        es_id = #{esId,jdbcType=VARCHAR},
+      </if>
+      <if test="signatureCode != null">
+        signature_code = #{signatureCode,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="bitrhPlace != null">
+        bitrh_place = #{bitrhPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null">
+        certificate_type = #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateNum != null">
+        certificate_num = #{certificateNum,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatNum != null">
+        wechat_num = #{wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="health != null">
+        health = #{health,jdbcType=VARCHAR},
+      </if>
+      <if test="hobbies != null">
+        hobbies = #{hobbies,jdbcType=VARCHAR},
+      </if>
+      <if test="housingStatus != null">
+        housing_status = #{housingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="houseAddress != null">
+        house_address = #{houseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingMinute != null">
+        driving_minute = #{drivingMinute,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outReason != null">
+        out_reason = #{outReason,jdbcType=VARCHAR},
+      </if>
+      <if test="outRemark != null">
+        out_remark = #{outRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeDetail != null">
+        resume_detail = #{resumeDetail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.demo.model.BiResume">
+    update bi_resume
+    set seeker_id = #{seekerId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      plat_seeker_id = #{platSeekerId,jdbcType=VARCHAR},
+      plat_resume_id = #{platResumeId,jdbcType=VARCHAR},
+      job_id = #{jobId,jdbcType=VARCHAR},
+      post_id = #{postId,jdbcType=VARCHAR},
+      plat_id = #{platId,jdbcType=VARCHAR},
+      job_seeker_name = #{jobSeekerName,jdbcType=VARCHAR},
+      in_way = #{inWay,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      old_phone = #{oldPhone,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      work_length_max = #{workLengthMax,jdbcType=INTEGER},
+      work_length_min = #{workLengthMin,jdbcType=INTEGER},
+      work_length = #{workLength,jdbcType=VARCHAR},
+      is_marry = #{isMarry,jdbcType=VARCHAR},
+      job_title = #{jobTitle,jdbcType=VARCHAR},
+      reside_address = #{resideAddress,jdbcType=VARCHAR},
+      current_state = #{currentState,jdbcType=VARCHAR},
+      expect_salary_max = #{expectSalaryMax,jdbcType=INTEGER},
+      expect_salary_min = #{expectSalaryMin,jdbcType=INTEGER},
+      expect_place = #{expectPlace,jdbcType=VARCHAR},
+      interested_dept = #{interestedDept,jdbcType=VARCHAR},
+      expect_job = #{expectJob,jdbcType=VARCHAR},
+      is_occupy = #{isOccupy,jdbcType=VARCHAR},
+      expect_industry = #{expectIndustry,jdbcType=VARCHAR},
+      photo_path = #{photoPath,jdbcType=VARCHAR},
+      person_state = #{personState,jdbcType=VARCHAR},
+      abandon_reason_id = #{abandonReasonId,jdbcType=VARCHAR},
+      expect_job_property = #{expectJobProperty,jdbcType=VARCHAR},
+      political_status = #{politicalStatus,jdbcType=VARCHAR},
+      education_str = #{educationStr,jdbcType=VARCHAR},
+      work_ex_str = #{workExStr,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      is_distribute = #{isDistribute,jdbcType=VARCHAR},
+      ask_time = #{askTime,jdbcType=TIMESTAMP},
+      is_brand_company = #{isBrandCompany,jdbcType=VARCHAR},
+      is_brand_university = #{isBrandUniversity,jdbcType=VARCHAR},
+      last_updated_date = #{lastUpdatedDate,jdbcType=TIMESTAMP},
+      university = #{university,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      resume_upload_name = #{resumeUploadName,jdbcType=VARCHAR},
+      resume_name = #{resumeName,jdbcType=VARCHAR},
+      resume_path = #{resumePath,jdbcType=VARCHAR},
+      pdf_path = #{pdfPath,jdbcType=VARCHAR},
+      works_path = #{worksPath,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=VARCHAR},
+      buss_dept_id = #{bussDeptId,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      out_date = #{outDate,jdbcType=TIMESTAMP},
+      last_oper_user_id = #{lastOperUserId,jdbcType=INTEGER},
+      out_state = #{outState,jdbcType=INTEGER},
+      es_id = #{esId,jdbcType=VARCHAR},
+      signature_code = #{signatureCode,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      bitrh_place = #{bitrhPlace,jdbcType=VARCHAR},
+      certificate_type = #{certificateType,jdbcType=VARCHAR},
+      certificate_num = #{certificateNum,jdbcType=VARCHAR},
+      wechat_num = #{wechatNum,jdbcType=VARCHAR},
+      health = #{health,jdbcType=VARCHAR},
+      hobbies = #{hobbies,jdbcType=VARCHAR},
+      housing_status = #{housingStatus,jdbcType=VARCHAR},
+      house_address = #{houseAddress,jdbcType=VARCHAR},
+      driving_minute = #{drivingMinute,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      deleted = #{deleted,jdbcType=INTEGER},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      out_reason = #{outReason,jdbcType=VARCHAR},
+      out_remark = #{outRemark,jdbcType=VARCHAR},
+      resume_detail = #{resumeDetail,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.BiResume">
+    update bi_resume
+    set seeker_id = #{seekerId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      plat_seeker_id = #{platSeekerId,jdbcType=VARCHAR},
+      plat_resume_id = #{platResumeId,jdbcType=VARCHAR},
+      job_id = #{jobId,jdbcType=VARCHAR},
+      post_id = #{postId,jdbcType=VARCHAR},
+      plat_id = #{platId,jdbcType=VARCHAR},
+      job_seeker_name = #{jobSeekerName,jdbcType=VARCHAR},
+      in_way = #{inWay,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      old_phone = #{oldPhone,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      work_length_max = #{workLengthMax,jdbcType=INTEGER},
+      work_length_min = #{workLengthMin,jdbcType=INTEGER},
+      work_length = #{workLength,jdbcType=VARCHAR},
+      is_marry = #{isMarry,jdbcType=VARCHAR},
+      job_title = #{jobTitle,jdbcType=VARCHAR},
+      reside_address = #{resideAddress,jdbcType=VARCHAR},
+      current_state = #{currentState,jdbcType=VARCHAR},
+      expect_salary_max = #{expectSalaryMax,jdbcType=INTEGER},
+      expect_salary_min = #{expectSalaryMin,jdbcType=INTEGER},
+      expect_place = #{expectPlace,jdbcType=VARCHAR},
+      interested_dept = #{interestedDept,jdbcType=VARCHAR},
+      expect_job = #{expectJob,jdbcType=VARCHAR},
+      is_occupy = #{isOccupy,jdbcType=VARCHAR},
+      expect_industry = #{expectIndustry,jdbcType=VARCHAR},
+      photo_path = #{photoPath,jdbcType=VARCHAR},
+      person_state = #{personState,jdbcType=VARCHAR},
+      abandon_reason_id = #{abandonReasonId,jdbcType=VARCHAR},
+      expect_job_property = #{expectJobProperty,jdbcType=VARCHAR},
+      political_status = #{politicalStatus,jdbcType=VARCHAR},
+      education_str = #{educationStr,jdbcType=VARCHAR},
+      work_ex_str = #{workExStr,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      is_distribute = #{isDistribute,jdbcType=VARCHAR},
+      ask_time = #{askTime,jdbcType=TIMESTAMP},
+      is_brand_company = #{isBrandCompany,jdbcType=VARCHAR},
+      is_brand_university = #{isBrandUniversity,jdbcType=VARCHAR},
+      last_updated_date = #{lastUpdatedDate,jdbcType=TIMESTAMP},
+      university = #{university,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      resume_upload_name = #{resumeUploadName,jdbcType=VARCHAR},
+      resume_name = #{resumeName,jdbcType=VARCHAR},
+      resume_path = #{resumePath,jdbcType=VARCHAR},
+      pdf_path = #{pdfPath,jdbcType=VARCHAR},
+      works_path = #{worksPath,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=VARCHAR},
+      buss_dept_id = #{bussDeptId,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      out_date = #{outDate,jdbcType=TIMESTAMP},
+      last_oper_user_id = #{lastOperUserId,jdbcType=INTEGER},
+      out_state = #{outState,jdbcType=INTEGER},
+      es_id = #{esId,jdbcType=VARCHAR},
+      signature_code = #{signatureCode,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      bitrh_place = #{bitrhPlace,jdbcType=VARCHAR},
+      certificate_type = #{certificateType,jdbcType=VARCHAR},
+      certificate_num = #{certificateNum,jdbcType=VARCHAR},
+      wechat_num = #{wechatNum,jdbcType=VARCHAR},
+      health = #{health,jdbcType=VARCHAR},
+      hobbies = #{hobbies,jdbcType=VARCHAR},
+      housing_status = #{housingStatus,jdbcType=VARCHAR},
+      house_address = #{houseAddress,jdbcType=VARCHAR},
+      driving_minute = #{drivingMinute,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      deleted = #{deleted,jdbcType=INTEGER},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      out_reason = #{outReason,jdbcType=VARCHAR},
+      out_remark = #{outRemark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

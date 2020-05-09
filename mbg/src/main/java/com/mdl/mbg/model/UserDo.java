@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.mdl.mbg.model;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.demo.dao.UserDoMapper">
-  <resultMap id="BaseResultMap" type="com.demo.model.UserDo">
+  <resultMap id="BaseResultMap" type="com.mdl.mbg.model.UserDo">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="org_user_id" jdbcType="VARCHAR" property="orgUserId" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -43,14 +43,14 @@
     <result column="area_type" jdbcType="INTEGER" property="areaType" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, org_user_id, email, org_name5, org_name4, org_name3, org_name2, org_name1, employee_name, 
-    position, gender, work_state_desc, work_state, source, employee_id, user_name, dept_id, 
-    dept, org_dept_id, phone, role_id, role_name, created_by, created_date, last_updated_by, 
-    last_updated_date, enable, comment, password, login_count, token, last_login_time, 
+    id, org_user_id, email, org_name5, org_name4, org_name3, org_name2, org_name1, employee_name,
+    position, gender, work_state_desc, work_state, source, employee_id, user_name, dept_id,
+    dept, org_dept_id, phone, role_id, role_name, created_by, created_date, last_updated_by,
+    last_updated_date, enable, comment, password, login_count, token, last_login_time,
     version, deleted, employee_id263, employee_id_ehr, division_ehr, area, area_type
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_user
     where id = #{id,jdbcType=VARCHAR}
@@ -60,32 +60,32 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.demo.model.UserDo">
-    insert into sys_user (id, org_user_id, email, 
-      org_name5, org_name4, org_name3, 
-      org_name2, org_name1, employee_name, 
-      position, gender, work_state_desc, 
-      work_state, source, employee_id, 
-      user_name, dept_id, dept, 
-      org_dept_id, phone, role_id, 
-      role_name, created_by, created_date, 
-      last_updated_by, last_updated_date, enable, 
-      comment, password, login_count, 
-      token, last_login_time, version, 
-      deleted, employee_id263, employee_id_ehr, 
+    insert into sys_user (id, org_user_id, email,
+      org_name5, org_name4, org_name3,
+      org_name2, org_name1, employee_name,
+      position, gender, work_state_desc,
+      work_state, source, employee_id,
+      user_name, dept_id, dept,
+      org_dept_id, phone, role_id,
+      role_name, created_by, created_date,
+      last_updated_by, last_updated_date, enable,
+      comment, password, login_count,
+      token, last_login_time, version,
+      deleted, employee_id263, employee_id_ehr,
       division_ehr, area, area_type
       )
-    values (#{id,jdbcType=VARCHAR}, #{orgUserId,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{orgName5,jdbcType=VARCHAR}, #{orgName4,jdbcType=VARCHAR}, #{orgName3,jdbcType=VARCHAR}, 
-      #{orgName2,jdbcType=VARCHAR}, #{orgName1,jdbcType=VARCHAR}, #{employeeName,jdbcType=VARCHAR}, 
-      #{position,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{workStateDesc,jdbcType=VARCHAR}, 
-      #{workState,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{employeeId,jdbcType=VARCHAR}, 
-      #{userName,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}, #{dept,jdbcType=VARCHAR}, 
-      #{orgDeptId,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, 
-      #{roleName,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
-      #{lastUpdatedBy,jdbcType=VARCHAR}, #{lastUpdatedDate,jdbcType=TIMESTAMP}, #{enable,jdbcType=BIGINT}, 
-      #{comment,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{loginCount,jdbcType=INTEGER}, 
-      #{token,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, 
-      #{deleted,jdbcType=INTEGER}, #{employeeId263,jdbcType=VARCHAR}, #{employeeIdEhr,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{orgUserId,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+      #{orgName5,jdbcType=VARCHAR}, #{orgName4,jdbcType=VARCHAR}, #{orgName3,jdbcType=VARCHAR},
+      #{orgName2,jdbcType=VARCHAR}, #{orgName1,jdbcType=VARCHAR}, #{employeeName,jdbcType=VARCHAR},
+      #{position,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{workStateDesc,jdbcType=VARCHAR},
+      #{workState,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{employeeId,jdbcType=VARCHAR},
+      #{userName,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}, #{dept,jdbcType=VARCHAR},
+      #{orgDeptId,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR},
+      #{roleName,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP},
+      #{lastUpdatedBy,jdbcType=VARCHAR}, #{lastUpdatedDate,jdbcType=TIMESTAMP}, #{enable,jdbcType=BIGINT},
+      #{comment,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{loginCount,jdbcType=INTEGER},
+      #{token,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+      #{deleted,jdbcType=INTEGER}, #{employeeId263,jdbcType=VARCHAR}, #{employeeIdEhr,jdbcType=VARCHAR},
       #{divisionEhr,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{areaType,jdbcType=INTEGER}
       )
   </insert>

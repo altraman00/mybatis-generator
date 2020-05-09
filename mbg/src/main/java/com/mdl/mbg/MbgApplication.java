@@ -1,13 +1,13 @@
-package com.mdl.db;
+package com.mdl.mbg;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MybatisGeneratorApplication {
+public class MbgApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MybatisGeneratorApplication.class, args);
+        SpringApplication.run(MbgApplication.class, args);
     }
 
 }
