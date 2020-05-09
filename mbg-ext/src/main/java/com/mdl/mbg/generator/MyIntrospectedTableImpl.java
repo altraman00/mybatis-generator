@@ -2,6 +2,8 @@ package com.mdl.mbg.generator;
 
 import org.mybatis.generator.codegen.mybatis3.IntrospectedTableMyBatis3Impl;
 
+import java.io.File;
+
 /**
  * @Project : mall
  * @Package Name : com.mdl.mbg.generator
@@ -155,7 +157,7 @@ public class MyIntrospectedTableImpl extends IntrospectedTableMyBatis3Impl {
 //     * @return
 //     */
 //    private static Boolean fileIsNotExists(String filePath, String fileName) {
-//        String fileStr = filePath + File.separator + fileName;
+//        String fileStr = filePath.replace(".", File.separator) + File.separator + fileName;
 //        File file = new File(fileStr);
 //        return !file.exists();
 //    }

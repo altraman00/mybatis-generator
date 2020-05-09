@@ -45,7 +45,7 @@ public class DaoExtPlugin extends PluginAdapter {
     }
 
     private static Boolean fileIsNotExists(String filePath, String fileName) {
-        String fileStr = filePath + File.separator + fileName;
+        String fileStr = filePath.replace(".",File.separator) + File.separator + fileName;
         File file = new File(fileStr);
         return !file.exists();
     }
