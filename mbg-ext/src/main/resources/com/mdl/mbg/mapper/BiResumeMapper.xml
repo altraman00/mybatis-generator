@@ -50,16 +50,16 @@
     <result column="self_evaluation" jdbcType="VARCHAR" property="selfEvaluation" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, job_seeker_name, degree, current_state, in_way, phone, plat_id, state, age, email, 
-    sex, birthday, work_length_max, work_length_min, work_length, is_marry, job_title, 
-    reside_address, expect_salary_max, expect_salary_min, expect_place, expect_job, expect_industry, 
-    photo_path, expect_job_property, political_status, university, major, nation, bitrh_place, 
-    certificate_type, certificate_num, wechat_num, health, hobbies, housing_status, house_area, 
-    house_address, trace_id, deleted, create_dt, modify_dt, version, sort_no, domicile_place, 
+    id, job_seeker_name, degree, current_state, in_way, phone, plat_id, state, age, email,
+    sex, birthday, work_length_max, work_length_min, work_length, is_marry, job_title,
+    reside_address, expect_salary_max, expect_salary_min, expect_place, expect_job, expect_industry,
+    photo_path, expect_job_property, political_status, university, major, nation, bitrh_place,
+    certificate_type, certificate_num, wechat_num, health, hobbies, housing_status, house_area,
+    house_address, trace_id, deleted, create_dt, modify_dt, version, sort_no, domicile_place,
     self_evaluation
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from bi_resume
     where id = #{id,jdbcType=VARCHAR}
@@ -72,36 +72,36 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into bi_resume (job_seeker_name, degree, current_state, 
-      in_way, phone, plat_id, 
-      state, age, email, 
-      sex, birthday, work_length_max, 
-      work_length_min, work_length, is_marry, 
-      job_title, reside_address, expect_salary_max, 
-      expect_salary_min, expect_place, expect_job, 
-      expect_industry, photo_path, expect_job_property, 
-      political_status, university, major, 
-      nation, bitrh_place, certificate_type, 
-      certificate_num, wechat_num, health, 
-      hobbies, housing_status, house_area, 
-      house_address, trace_id, deleted, 
-      create_dt, modify_dt, version, 
+    insert into bi_resume (job_seeker_name, degree, current_state,
+      in_way, phone, plat_id,
+      state, age, email,
+      sex, birthday, work_length_max,
+      work_length_min, work_length, is_marry,
+      job_title, reside_address, expect_salary_max,
+      expect_salary_min, expect_place, expect_job,
+      expect_industry, photo_path, expect_job_property,
+      political_status, university, major,
+      nation, bitrh_place, certificate_type,
+      certificate_num, wechat_num, health,
+      hobbies, housing_status, house_area,
+      house_address, trace_id, deleted,
+      create_dt, modify_dt, version,
       sort_no, domicile_place, self_evaluation
       )
-    values (#{jobSeekerName,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, #{currentState,jdbcType=VARCHAR}, 
-      #{inWay,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{platId,jdbcType=VARCHAR}, 
-      #{state,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{workLengthMax,jdbcType=INTEGER}, 
-      #{workLengthMin,jdbcType=INTEGER}, #{workLength,jdbcType=VARCHAR}, #{isMarry,jdbcType=VARCHAR}, 
-      #{jobTitle,jdbcType=VARCHAR}, #{resideAddress,jdbcType=VARCHAR}, #{expectSalaryMax,jdbcType=INTEGER}, 
-      #{expectSalaryMin,jdbcType=INTEGER}, #{expectPlace,jdbcType=VARCHAR}, #{expectJob,jdbcType=VARCHAR}, 
-      #{expectIndustry,jdbcType=VARCHAR}, #{photoPath,jdbcType=VARCHAR}, #{expectJobProperty,jdbcType=VARCHAR}, 
-      #{politicalStatus,jdbcType=VARCHAR}, #{university,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, 
-      #{nation,jdbcType=VARCHAR}, #{bitrhPlace,jdbcType=VARCHAR}, #{certificateType,jdbcType=VARCHAR}, 
-      #{certificateNum,jdbcType=VARCHAR}, #{wechatNum,jdbcType=VARCHAR}, #{health,jdbcType=VARCHAR}, 
-      #{hobbies,jdbcType=VARCHAR}, #{housingStatus,jdbcType=VARCHAR}, #{houseArea,jdbcType=VARCHAR}, 
-      #{houseAddress,jdbcType=VARCHAR}, #{traceId,jdbcType=VARCHAR}, #{deleted,jdbcType=INTEGER}, 
-      #{createDt,jdbcType=TIMESTAMP}, #{modifyDt,jdbcType=TIMESTAMP}, #{version,jdbcType=VARCHAR}, 
+    values (#{jobSeekerName,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, #{currentState,jdbcType=VARCHAR},
+      #{inWay,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{platId,jdbcType=VARCHAR},
+      #{state,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR},
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{workLengthMax,jdbcType=INTEGER},
+      #{workLengthMin,jdbcType=INTEGER}, #{workLength,jdbcType=VARCHAR}, #{isMarry,jdbcType=VARCHAR},
+      #{jobTitle,jdbcType=VARCHAR}, #{resideAddress,jdbcType=VARCHAR}, #{expectSalaryMax,jdbcType=INTEGER},
+      #{expectSalaryMin,jdbcType=INTEGER}, #{expectPlace,jdbcType=VARCHAR}, #{expectJob,jdbcType=VARCHAR},
+      #{expectIndustry,jdbcType=VARCHAR}, #{photoPath,jdbcType=VARCHAR}, #{expectJobProperty,jdbcType=VARCHAR},
+      #{politicalStatus,jdbcType=VARCHAR}, #{university,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR},
+      #{nation,jdbcType=VARCHAR}, #{bitrhPlace,jdbcType=VARCHAR}, #{certificateType,jdbcType=VARCHAR},
+      #{certificateNum,jdbcType=VARCHAR}, #{wechatNum,jdbcType=VARCHAR}, #{health,jdbcType=VARCHAR},
+      #{hobbies,jdbcType=VARCHAR}, #{housingStatus,jdbcType=VARCHAR}, #{houseArea,jdbcType=VARCHAR},
+      #{houseAddress,jdbcType=VARCHAR}, #{traceId,jdbcType=VARCHAR}, #{deleted,jdbcType=INTEGER},
+      #{createDt,jdbcType=TIMESTAMP}, #{modifyDt,jdbcType=TIMESTAMP}, #{version,jdbcType=VARCHAR},
       #{sortNo,jdbcType=INTEGER}, #{domicilePlace,jdbcType=VARCHAR}, #{selfEvaluation,jdbcType=VARCHAR}
       )
   </insert>
