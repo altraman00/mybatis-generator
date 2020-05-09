@@ -575,4 +575,147 @@
       self_evaluation = #{selfEvaluation,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="findBy" parameterType="com.mdl.mbg.model.BiResumeEntity" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from bi_resume
+    <where>
+      <if test="id != null">
+        and id = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="jobSeekerName != null">
+        and job_seeker_name = #{jobSeekerName,jdbcType=VARCHAR}
+      </if>
+      <if test="degree != null">
+        and degree = #{degree,jdbcType=VARCHAR}
+      </if>
+      <if test="currentState != null">
+        and current_state = #{currentState,jdbcType=VARCHAR}
+      </if>
+      <if test="inWay != null">
+        and in_way = #{inWay,jdbcType=VARCHAR}
+      </if>
+      <if test="phone != null">
+        and phone = #{phone,jdbcType=VARCHAR}
+      </if>
+      <if test="platId != null">
+        and plat_id = #{platId,jdbcType=VARCHAR}
+      </if>
+      <if test="state != null">
+        and state = #{state,jdbcType=INTEGER}
+      </if>
+      <if test="age != null">
+        and age = #{age,jdbcType=INTEGER}
+      </if>
+      <if test="email != null">
+        and email = #{email,jdbcType=VARCHAR}
+      </if>
+      <if test="sex != null">
+        and sex = #{sex,jdbcType=VARCHAR}
+      </if>
+      <if test="birthday != null">
+        and birthday = #{birthday,jdbcType=VARCHAR}
+      </if>
+      <if test="workLengthMax != null">
+        and work_length_max = #{workLengthMax,jdbcType=INTEGER}
+      </if>
+      <if test="workLengthMin != null">
+        and work_length_min = #{workLengthMin,jdbcType=INTEGER}
+      </if>
+      <if test="workLength != null">
+        and work_length = #{workLength,jdbcType=VARCHAR}
+      </if>
+      <if test="isMarry != null">
+        and is_marry = #{isMarry,jdbcType=VARCHAR}
+      </if>
+      <if test="jobTitle != null">
+        and job_title = #{jobTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="resideAddress != null">
+        and reside_address = #{resideAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="expectSalaryMax != null">
+        and expect_salary_max = #{expectSalaryMax,jdbcType=INTEGER}
+      </if>
+      <if test="expectSalaryMin != null">
+        and expect_salary_min = #{expectSalaryMin,jdbcType=INTEGER}
+      </if>
+      <if test="expectPlace != null">
+        and expect_place = #{expectPlace,jdbcType=VARCHAR}
+      </if>
+      <if test="expectJob != null">
+        and expect_job = #{expectJob,jdbcType=VARCHAR}
+      </if>
+      <if test="expectIndustry != null">
+        and expect_industry = #{expectIndustry,jdbcType=VARCHAR}
+      </if>
+      <if test="photoPath != null">
+        and photo_path = #{photoPath,jdbcType=VARCHAR}
+      </if>
+      <if test="expectJobProperty != null">
+        and expect_job_property = #{expectJobProperty,jdbcType=VARCHAR}
+      </if>
+      <if test="politicalStatus != null">
+        and political_status = #{politicalStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="university != null">
+        and university = #{university,jdbcType=VARCHAR}
+      </if>
+      <if test="major != null">
+        and major = #{major,jdbcType=VARCHAR}
+      </if>
+      <if test="nation != null">
+        and nation = #{nation,jdbcType=VARCHAR}
+      </if>
+      <if test="bitrhPlace != null">
+        and bitrh_place = #{bitrhPlace,jdbcType=VARCHAR}
+      </if>
+      <if test="certificateType != null">
+        and certificate_type = #{certificateType,jdbcType=VARCHAR}
+      </if>
+      <if test="certificateNum != null">
+        and certificate_num = #{certificateNum,jdbcType=VARCHAR}
+      </if>
+      <if test="wechatNum != null">
+        and wechat_num = #{wechatNum,jdbcType=VARCHAR}
+      </if>
+      <if test="health != null">
+        and health = #{health,jdbcType=VARCHAR}
+      </if>
+      <if test="hobbies != null">
+        and hobbies = #{hobbies,jdbcType=VARCHAR}
+      </if>
+      <if test="housingStatus != null">
+        and housing_status = #{housingStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="houseArea != null">
+        and house_area = #{houseArea,jdbcType=VARCHAR}
+      </if>
+      <if test="houseAddress != null">
+        and house_address = #{houseAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="traceId != null">
+        and trace_id = #{traceId,jdbcType=VARCHAR}
+      </if>
+      <if test="deleted != null">
+        and deleted = #{deleted,jdbcType=INTEGER}
+      </if>
+      <if test="createDt != null">
+        and create_dt = #{createDt,jdbcType=TIMESTAMP}
+      </if>
+      <if test="modifyDt != null">
+        and modify_dt = #{modifyDt,jdbcType=TIMESTAMP}
+      </if>
+      <if test="version != null">
+        and version = #{version,jdbcType=VARCHAR}
+      </if>
+      <if test="sortNo != null">
+        and sort_no = #{sortNo,jdbcType=INTEGER}
+      </if>
+      <if test="domicilePlace != null">
+        and domicile_place = #{domicilePlace,jdbcType=VARCHAR}
+      </if>
+      <if test="selfEvaluation != null">
+        and self_evaluation = #{selfEvaluation,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
 </mapper>

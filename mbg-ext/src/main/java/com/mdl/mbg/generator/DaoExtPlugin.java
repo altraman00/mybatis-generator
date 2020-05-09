@@ -1,15 +1,8 @@
 package com.mdl.mbg.generator;
 
-import org.mybatis.generator.api.GeneratedJavaFile;
-import org.mybatis.generator.api.GeneratedXmlFile;
-import org.mybatis.generator.api.IntrospectedTable;
-import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
-import org.mybatis.generator.api.dom.java.Interface;
-import org.mybatis.generator.api.dom.java.JavaVisibility;
-import org.mybatis.generator.api.dom.xml.Attribute;
-import org.mybatis.generator.api.dom.xml.Document;
-import org.mybatis.generator.api.dom.xml.XmlElement;
+import org.mybatis.generator.api.*;
+import org.mybatis.generator.api.dom.java.*;
+import org.mybatis.generator.api.dom.xml.*;
 import org.mybatis.generator.codegen.XmlConstants;
 
 import java.io.File;
@@ -137,6 +130,76 @@ public class DaoExtPlugin extends PluginAdapter {
         });
         return list;
     }
+
+
+    /**
+     * 创建自定义的根据字段条件查询的sql
+     * @param document
+     * @param introspectedTable
+     * @return
+     */
+    @Override
+    public boolean sqlMapDocumentGenerated(Document document, IntrospectedTable introspectedTable){
+
+        String daoPackage = context.getJavaModelGeneratorConfiguration().getTargetPackage();
+        String daoName = introspectedTable.getTableConfiguration().getDomainObjectName();
+
+        //获取xml文件的根结点
+        XmlElement rootElement = document.getRootElement();
+
+        //新增一个select方法的节点加到根目录下，指定id，参数，返回类型
+        XmlElement select = new XmlElement("select");
+        select.addAttribute(new Attribute("resultMap","BaseResultMap"));
+        select.addAttribute(new Attribute("id","findBy"));
+        select.addAttribute(new Attribute("parameterType",daoPackage + "." + daoName));
+
+        //新增一个文本节点，拼接sql
+        TextElement selectStr = new TextElement("select <include refid=\"Base_Column_List\" /> from "
+                + introspectedTable.getTableConfiguration().getTableName());
+
+        select.addElement(selectStr);
+        select.addElement(getWhere(introspectedTable));
+        rootElement.addElement(select);
+
+        return super.sqlMapDocumentGenerated(document,introspectedTable);
+    }
+
+    private Element getWhere(IntrospectedTable introspectedTable) {
+        List<IntrospectedColumn> allColumns = introspectedTable.getAllColumns();
+        XmlElement where = new XmlElement("where");
+        allColumns.stream().forEach(column -> {
+            XmlElement ifFlag = new XmlElement("if");
+            ifFlag.addAttribute(new Attribute("test",column.getJavaProperty()+" != null"));
+            String andText = "and " + column.getActualColumnName() + " = #{" + column.getJavaProperty() + ",jdbcType=" + column.getJdbcTypeName() + "}";
+            TextElement and = new TextElement(andText);
+            ifFlag.addElement(and);
+            where.addElement(ifFlag);
+        });
+        return where;
+    }
+
+    /**
+     * 创建mapper.java中的方法
+     * @param interfaze
+     * @param topLevelClass
+     * @param introspectedTable
+     * @return
+     */
+    @Override
+    public boolean clientGenerated(Interface interfaze,TopLevelClass topLevelClass,IntrospectedTable introspectedTable){
+        Method m = new Method("findBy");
+        m.setVisibility(m.getVisibility());
+        String domainObjectName = introspectedTable.getTableConfiguration().getDomainObjectName();
+        m.setReturnType(new FullyQualifiedJavaType("List<"+domainObjectName+">"));
+        m.addParameter(new Parameter(new FullyQualifiedJavaType(domainObjectName),
+                domainObjectName.substring(0,1).toLowerCase() + domainObjectName.substring(1)));
+        interfaze.addMethod(m);
+        interfaze.addImportedType(new FullyQualifiedJavaType("java.util.List"));
+        return super.clientGenerated(interfaze,topLevelClass,introspectedTable);
+    }
+
+
+
 
 
     public static void main(String[] args) {
