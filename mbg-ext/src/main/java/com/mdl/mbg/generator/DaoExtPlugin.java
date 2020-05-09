@@ -77,7 +77,9 @@ public class DaoExtPlugin extends PluginAdapter {
 
             if (fileIsNotExists(file, fileName)) {
 
-                logger.error("红色警告--红色警告--红色警告--红色警告--《" + file + fileName + "》--自定义文件是否真的不存在，有被覆盖的风险");
+                logger.info("\n------------------------------------------------------------------------------------------------\n");
+                logger.error("红色警告--红色警告--红色警告--《" + file + fileName + "》--自定义文件是否真的不存在，有被覆盖的风险");
+                logger.info("\n------------------------------------------------------------------------------------------------\n");
 
                 //定义一个接口
                 Interface face = new Interface(extMapperPath + "." + daoName + "MapperExt");
@@ -123,8 +125,9 @@ public class DaoExtPlugin extends PluginAdapter {
             String filePath = mapperTargetProject + "." + mapperTargetPackage;
 
             if (fileIsNotExists(filePath, fileName)) {
-
+                logger.info("\n------------------------------------------------------------------------------------------------\n");
                 logger.error("红色警告--红色警告--红色警告--红色警告--《" + filePath + fileName + "》--自定义文件是否真的不存在，有被覆盖的风险");
+                logger.info("\n------------------------------------------------------------------------------------------------\n");
 
                 Document document = new Document(XmlConstants.MYBATIS3_MAPPER_PUBLIC_ID
                         , XmlConstants.MYBATIS3_MAPPER_SYSTEM_ID);
