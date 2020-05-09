@@ -72,20 +72,21 @@ public class DaoExtPlugin extends PluginAdapter {
         context.getTableConfigurations().stream().forEach(t -> {
             String daoName = t.getDomainObjectName();
             String filePath = daoTargetPackage;
-            String file = daoTargetProject + "." + filePath;
+            //extMapper存放到dao文件夹中，与mapper文件夹区分开来
+            String extMapperPath = filePath.replace("mapper","dao");
+            String file = daoTargetProject + "." + extMapperPath;
             String fileName = daoName + "MapperExt.java";
             String supperFilePath = daoTargetPackage + "." + daoName + "Mapper";
 
             if (fileIsNotExists(file, fileName)) {
                 //定义一个接口
-                Interface face = new Interface(filePath + "." + daoName + "MapperExt");
+                Interface face = new Interface(extMapperPath + "." + daoName + "MapperExt");
 
                 //此接口继承父类
                 face.addSuperInterface(new FullyQualifiedJavaType(supperFilePath));
 
                 //设置接口的修饰符
                 face.setVisibility(JavaVisibility.PUBLIC);
-//                face.addAnnotation(String.valueOf(properties.setProperty("annotation", "@Resource")));
                 face.addAnnotation("@Resource");
 
                 //导包
@@ -115,7 +116,9 @@ public class DaoExtPlugin extends PluginAdapter {
 
         context.getTableConfigurations().stream().forEach(t -> {
             String daoName = t.getDomainObjectName();
-            String nameSpace = daoTargetPackage + "." + daoName + "MapperExt";
+            //extMapper存放到dao文件夹中，与mapper文件夹区分开来
+            String extMapperPath = daoTargetPackage.replace("mapper","dao");
+            String nameSpace = extMapperPath + "." + daoName + "MapperExt";
             String fileName = daoName + "MapperExt.xml";
             String filePath = mapperTargetProject + "." + mapperTargetPackage;
 

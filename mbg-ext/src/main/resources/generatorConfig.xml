@@ -36,10 +36,13 @@
         </jdbcConnection>
 
         <!--windows是右斜杠"\"，mac和linux是左斜杠"/"-->
+        <!-- model.java文件存放路径 -->
         <javaModelGenerator targetPackage="com.mdl.mbg.model" targetProject="mbg-ext/src/main/java"/>
 
+        <!-- xml文件存放路径 -->
         <sqlMapGenerator targetPackage="com.mdl.mbg.mapper" targetProject="mbg-ext/src/main/resources"/>
 
+        <!-- mapper.java文件存放路径 -->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.mdl.mbg.mapper" targetProject="mbg-ext/src/main/java"/>
 
         <!--生成全部表tableName设为%-->
