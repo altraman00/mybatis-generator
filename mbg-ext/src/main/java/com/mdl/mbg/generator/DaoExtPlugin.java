@@ -56,7 +56,7 @@ public class DaoExtPlugin extends PluginAdapter {
 
 
     /**
-     * 3.重写contextGenerateAdditionalJavaFiles方法，新增dao层java扩展文件
+     * 3.重写contextGenerateAdditionalJavaFiles方法，新增dao层xxxMapperExt.java扩展文件
      *
      * @param introspectedTable
      * @return
@@ -75,6 +75,7 @@ public class DaoExtPlugin extends PluginAdapter {
             String fileName = daoName + "MapperExt.java";
             String supperFilePath = daoTargetPackage + "." + daoName + "Mapper";
 
+            //如果存放自定义sql方法的xxxMapperExt.java文件已经生成，则不再覆盖
             if (fileIsNotExists(file, fileName)) {
 
                 logger.info("\n------------------------------------------------------------------------------------------------\n");
@@ -124,6 +125,7 @@ public class DaoExtPlugin extends PluginAdapter {
             String fileName = daoName + "MapperExt.xml";
             String filePath = mapperTargetProject + "." + mapperTargetPackage;
 
+            //如果存放自定义sql的xxxMapperExt.xml文件已经生成，则不再覆盖
             if (fileIsNotExists(filePath, fileName)) {
                 logger.info("\n------------------------------------------------------------------------------------------------\n");
                 logger.error("红色警告--红色警告--红色警告--红色警告--《" + filePath + fileName + "》--自定义文件是否真的不存在，有被覆盖的风险");
