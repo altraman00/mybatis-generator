@@ -118,6 +118,9 @@ public class BiResumeEntity implements Serializable {
     @ApiModelProperty(value = "目前住址")
     private String houseAddress;
 
+    @ApiModelProperty(value = "插件获取的html文件")
+    private String traceId;
+
     private Integer deleted;
 
     @ApiModelProperty(value = "创建时间")
@@ -136,9 +139,6 @@ public class BiResumeEntity implements Serializable {
 
     @ApiModelProperty(value = "自我评价")
     private String selfEvaluation;
-
-    @ApiModelProperty(value = "插件获取的html文件")
-    private String traceId;
 
     private static final long serialVersionUID = 1L;
 
@@ -446,6 +446,14 @@ public class BiResumeEntity implements Serializable {
         this.houseAddress = houseAddress;
     }
 
+    public String getTraceId() {
+        return traceId;
+    }
+
+    public void setTraceId(String traceId) {
+        this.traceId = traceId;
+    }
+
     public Integer getDeleted() {
         return deleted;
     }
@@ -502,14 +510,6 @@ public class BiResumeEntity implements Serializable {
         this.selfEvaluation = selfEvaluation;
     }
 
-    public String getTraceId() {
-        return traceId;
-    }
-
-    public void setTraceId(String traceId) {
-        this.traceId = traceId;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -554,6 +554,7 @@ public class BiResumeEntity implements Serializable {
         sb.append(", housingStatus=").append(housingStatus);
         sb.append(", houseArea=").append(houseArea);
         sb.append(", houseAddress=").append(houseAddress);
+        sb.append(", traceId=").append(traceId);
         sb.append(", deleted=").append(deleted);
         sb.append(", createDt=").append(createDt);
         sb.append(", modifyDt=").append(modifyDt);
@@ -561,7 +562,6 @@ public class BiResumeEntity implements Serializable {
         sb.append(", sortNo=").append(sortNo);
         sb.append(", domicilePlace=").append(domicilePlace);
         sb.append(", selfEvaluation=").append(selfEvaluation);
-        sb.append(", traceId=").append(traceId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -13,7 +13,5 @@ public interface BiResumeMapper {
 
     int updateByPrimaryKeySelective(BiResumeEntity record);
 
-    int updateByPrimaryKeyWithBLOBs(BiResumeEntity record);
-
     int updateByPrimaryKey(BiResumeEntity record);
 }
