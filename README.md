@@ -4,6 +4,11 @@
 ### mybatis generator自定义逆向工程防覆盖sql代码
 ##### 通过自定义插件生成/dao/xxxMapperExt.java和/mapper/xxxMapper.java区分开，以及生成xxxMapperExt.xml和xxxMapper.xml，自定义的sql和方法放在xxxMapperExt.xml和xxxMapperExt.java（ext文件只生成一次）中，xxxMapper.java和xxxMapper.xml的方法和sql随时可以因为表字段的修改而再次在生成，不影响xxxMapperExt.xml中的自定义sql
 
+参考资料：
+（主要）https://blog.csdn.net/qq_39328826/article/details/100608438
+https://blog.csdn.net/u010634066/article/details/80873175
+https://blog.csdn.net/u010634066/article/details/80873476
+
 主要思路：
 + 1、写个```MyIntrospectedTableImpl```类，继承```IntrospectedTableMyBatis3Impl```，重写```getMyBatis3SqlMapNamespace```方法改变生成后的```xxxMapper.xml```的命名空间为```namespace="com.xxx.xxx.xxx.BiResumeMapperExt"```；
 + 2、自定义插件```DaoExtPlugin```继承```PluginAdapter```，重写```validate```方法进行数据校验；
