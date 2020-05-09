@@ -5,9 +5,12 @@ import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.CompilationUnit;
 import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
+import org.mybatis.generator.api.dom.xml.Attribute;
+import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.internal.DefaultCommentGenerator;
 import org.mybatis.generator.internal.util.StringUtility;
 
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -15,9 +18,12 @@ import java.util.Properties;
  * Created by macro on 2018/4/26.
  */
 public class CommentGenerator extends DefaultCommentGenerator {
+
     private boolean addRemarkComments = false;
     private static final String EXAMPLE_SUFFIX="Example";
     private static final String API_MODEL_PROPERTY_FULL_CLASS_NAME="io.swagger.annotations.ApiModelProperty";
+
+    private Properties myPoperties = new Properties();
 
     /**
      * 设置用户配置的参数
@@ -25,6 +31,8 @@ public class CommentGenerator extends DefaultCommentGenerator {
     @Override
     public void addConfigurationProperties(Properties properties) {
         super.addConfigurationProperties(properties);
+        //本地保存一份properties
+        this.myPoperties.putAll(properties);
         this.addRemarkComments = StringUtility.isTrue(properties.getProperty("addRemarkComments"));
     }
 
@@ -70,4 +78,34 @@ public class CommentGenerator extends DefaultCommentGenerator {
             compilationUnit.addImportedType(new FullyQualifiedJavaType(API_MODEL_PROPERTY_FULL_CLASS_NAME));
         }
     }
+
+
+    /**
+     * 将namespace修改掉
+     * @param rootElement
+     */
+    @Override
+    public void addRootComment(XmlElement rootElement) {
+        super.addRootComment(rootElement);
+        Object replaceNamespace = myPoperties.get("replaceNamespace");
+        if(null==replaceNamespace||replaceNamespace.toString().equals("false")){
+            return;
+        }
+        List<Attribute> lists =  rootElement.getAttributes();
+        int delIndex = -1;String orginNameSpace="";
+        for(int i = 0;i<lists.size();i++){
+            if(lists.get(i).getName().equals("namespace")){
+                orginNameSpace = lists.get(i).getValue();
+                //if(orginNameSpace.endsWith("Ext"))break;
+                delIndex = i;
+                break;
+            }
+        }
+        if(delIndex!=-1){
+            lists.remove(delIndex);
+            rootElement.getAttributes().add(new Attribute("namespace", orginNameSpace.replace(".mapper.",".dao.")));
+        }
+    }
+
+
 }
