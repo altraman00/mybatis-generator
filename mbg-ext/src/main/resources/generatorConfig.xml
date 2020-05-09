@@ -11,15 +11,18 @@
         <property name="endingDelimiter" value="`"/>
         <property name="javaFileEncoding" value="UTF-8"/>
 
-        <!-- 使用自定义的扩展插件 -->
+        <!-- 使用自定义的扩展插件生成xxxMapperExt.java 和 xxxMapperExt.xml -->
         <plugin type="com.mdl.mbg.generator.DaoExtPlugin"></plugin>
 
         <!-- 为模型生成序列化方法-->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
         <!-- 为生成的Java模型创建一个toString方法 -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
         <!--生成mapper.xml时覆盖原文件-->
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
         <commentGenerator type="com.mdl.mbg.generator.CommentGenerator">
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
@@ -46,8 +49,9 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.mdl.mbg.mapper" targetProject="mbg-ext/src/main/java"/>
 
         <!--生成全部表tableName设为%-->
-        <table tableName="bi_resume" domainObjectName="BiResume" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+        <table tableName="bi_resume" domainObjectName="BiResumeEntity" mapperName="BiResumeMapper" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+
     </context>
 </generatorConfiguration>

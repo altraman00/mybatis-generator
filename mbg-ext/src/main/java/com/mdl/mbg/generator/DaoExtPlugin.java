@@ -70,7 +70,7 @@ public class DaoExtPlugin extends PluginAdapter {
         List<GeneratedJavaFile> answer = new ArrayList<>();
 
         context.getTableConfigurations().stream().forEach(t -> {
-            String daoName = t.getDomainObjectName();
+            String daoName = t.getDomainObjectName().replace("Entity","");
             String filePath = daoTargetPackage;
             //extMapper存放到dao文件夹中，与mapper文件夹区分开来
             String extMapperPath = filePath.replace("mapper","dao");
@@ -115,7 +115,7 @@ public class DaoExtPlugin extends PluginAdapter {
         List<GeneratedXmlFile> list = new ArrayList<>();
 
         context.getTableConfigurations().stream().forEach(t -> {
-            String daoName = t.getDomainObjectName();
+            String daoName = t.getDomainObjectName().replace("Entity","");
             //extMapper存放到dao文件夹中，与mapper文件夹区分开来
             String extMapperPath = daoTargetPackage.replace("mapper","dao");
             String nameSpace = extMapperPath + "." + daoName + "MapperExt";
