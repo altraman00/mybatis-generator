@@ -36,14 +36,14 @@
         </jdbcConnection>
 
         <!--windows是右斜杠"\"，mac和linux是左斜杠"/"-->
-        <javaModelGenerator targetPackage="com.mdl.mbg.generator.model" targetProject="mbg-ext/src/main/java"/>
+        <javaModelGenerator targetPackage="com.mdl.mbg.model" targetProject="mbg-ext/src/main/java"/>
 
-        <sqlMapGenerator targetPackage="com.mdl.mbg.generator.mapper" targetProject="mbg-ext/src/main/resources"/>
+        <sqlMapGenerator targetPackage="com.mdl.mbg.mapper" targetProject="mbg-ext/src/main/resources"/>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mdl.mbg.generator.mapper" targetProject="mbg-ext/src/main/java"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mdl.mbg.mapper" targetProject="mbg-ext/src/main/java"/>
 
         <!--生成全部表tableName设为%-->
-        <table tableName="bi_resume" domainObjectName="BiResume">
+        <table tableName="bi_resume" domainObjectName="BiResume" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

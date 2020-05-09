@@ -1,4 +1,4 @@
-package com.mdl.mbg.generator.mapper;
+package com.mdl.mbg.mapper;
 
 import javax.annotation.Resource;
 

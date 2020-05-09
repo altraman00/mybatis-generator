@@ -1,4 +1,4 @@
-package com.mdl.mbg.generator.model;
+package com.mdl.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
